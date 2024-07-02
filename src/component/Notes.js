@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import noteContext from '../context/noteContext';
-import Card from '../component/subComponent/card';
+import Card from './subComponent/card';
 
 function Notes() {
   const context = useContext(noteContext);
@@ -11,15 +11,15 @@ function Notes() {
   }, [getNote]); // Add getNote as a dependency to ensure it's called correctly
 
   const [showUpdateForm, setShowUpdateForm] = useState(false);
-  const [note, setNote] = useState({ id: "", etitle: "", ediscription: "", etag: "" });
+  const [note, setNote] = useState({ id: "", etitle: "", econtent: "", etag: "" });
 
   const updateNotes = (currentNote) => {
     setShowUpdateForm(true);
-    setNote({ id: currentNote._id, etitle: currentNote.title, ediscription: currentNote.content, etag: currentNote.tag });
+    setNote({ id: currentNote._id, etitle: currentNote.title, econtent: currentNote.content, etag: currentNote.tag });
   };
 
   const handleUpdate = () => {
-    updateNote(note.id, note.etitle, note.ediscription, note.etag);
+    updateNote(note.id, note.etitle, note.econtent, note.etag);
     setShowUpdateForm(false);
   };
 
@@ -47,11 +47,11 @@ function Notes() {
               />
             </div>
             <div>
-              <label htmlFor="ediscription" className="block text-sm font-medium text-gray-700">Description</label>
+              <label htmlFor="ediscription" className="block text-sm font-medium text-gray-700">Content</label>
               <textarea
                 id="ediscription"
                 name="ediscription"
-                value={note.ediscription}
+                value={note.econtent}
                 onChange={onChange}
                 minLength={5}
                 required
@@ -90,10 +90,10 @@ function Notes() {
         </div>
       )}
 
-      <div className="my-3">
-        <h1 className="text-2xl font-bold mb-3">Your Notes</h1>
+      <div className="my-3 ">
+        <h1 className="text-2xl font-bold mb-3 text-center">Your Notes</h1>
         {notes.length === 0 ? (
-          <p className="text-gray-600">No notes to display</p>
+          <p className="text-gray-600 text-center">No notes to display</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {notes.map((note) => (

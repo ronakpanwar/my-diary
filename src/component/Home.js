@@ -4,12 +4,15 @@ import Notes  from './Notes'
 
 
 const Home = () => {
-
+  
+  const token = localStorage.getItem('token');
 
 
   return (
    <>
-    <Notes/>
+   
+
+<Notes/>
 
    </>
   )
