@@ -6,7 +6,8 @@ const userSchema = require('./routes/user');
 const noteSchema = require('./routes/note');
 
 const PORT = 4000;
-const URL = 'mongodb://127.0.0.1:27017/my-diary';
+const URL = 'mongodb+srv://vilanrn:zEUwF5JQV87lkhcf@my-diary.75arg.mongodb.net/';
+
 
 
 

@@ -72,7 +72,7 @@ router.post('/login', [
     try {
        let user = await User.findOne({ email });
        if (!user) {
-          return res.status(400).json({ sucsess, errors: 'plese enter the correct information' });
+          return res.status(400).json({ sucsess:"false", errors: 'plese enter the correct information' });
        }
  
        const passwordcode = await bcrypt.compare(password, user.password);
